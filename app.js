@@ -1,17 +1,14 @@
-const Sequelize = require('sequelize'); 
-const sequelize = new Sequelize( 
-    'appsql', 
-    'root', 
-    '9111337529',
-     { 
-      dialect: 'mysql', 
-      host: 'localhost'
-    } 
-); 
+import bodyParser from "body-parser";
+import express from "express";
+import ProductRouter from"./Route/Product.route.js"
+import CategoryRouter from"./Route/Category.route.js"
+import sequelize from "./db/Connection.js";
+const app=express() 
 
-
-sequelize.authenticate().then(() => {
-   console.log('Connection has been established successfully.');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
-});
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
+app.use("/product",ProductRouter)
+app.use("/category",CategoryRouter)
+app.listen(2000,()=>{
+   console.log("server started");
+})
