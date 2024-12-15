@@ -3,6 +3,7 @@ import express from "express";
 import ProductRouter from"./Route/Product.route.js"
 import CategoryRouter from"./Route/Category.route.js"
 import sequelize from "./db/Connection.js";
+import CartRouter from "./Route/Cart.route.js";
 import UserRouter from"./Route/User.route.js"
 const app=express() 
 

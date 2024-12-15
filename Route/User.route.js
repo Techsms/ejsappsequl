@@ -1,4 +1,4 @@
-import express from express
+import express from "express"
 import{signIn,signUp} from "../Controller/User.controller.js"
 import {body} from "express-validator"
 

@@ -16,4 +16,9 @@ const Category=sequelize.define("Categories",{
    }     
    
 })
+sequelize.sync().then(() => {
+   console.log('Category table created successfully!');
+ }).catch((error) => {
+    console.error('Unable to create table : ', error);
+ });
 export default Category
